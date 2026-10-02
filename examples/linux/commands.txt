@@ -1,0 +1,8 @@
+whoami
+uptime -p
+df -h /tmp
+grep PRETTY_NAME /etc/os-release
+COPY /tmp/to-copy.txt /tmp/to-copy.txt
+cat /tmp/to-copy.txt
+ls /tmp/missing-folder
+reboot

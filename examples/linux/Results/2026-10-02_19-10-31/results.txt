@@ -1,0 +1,37 @@
+Run started: 2026-10-02 19:10:31
+Mode: diff
+Systems file: /tmp/systems.txt
+Compare: /tmp/to-copy.txt (local) <-> /tmp/to-copy.txt (remote)
+
+================================================================================
+HOST: host1 (<IP1>)
+================================================================================
+Differences found: /tmp/to-copy.txt
+  local file : /tmp/to-copy.txt
+  remote file: /tmp/to-copy.txt
+  only LOCAL  (line    3): port=8443
+  only REMOTE (line    3): port=8080
+  only REMOTE (line    5): debug=true
+================================================================================
+Result: OK
+
+================================================================================
+HOST: host2 (<IP2>)
+================================================================================
+Differences found: /tmp/to-copy.txt
+  local file : /tmp/to-copy.txt
+  remote file: /tmp/to-copy.txt
+  only LOCAL  (line    3): port=8443
+  only REMOTE (line    3): port=8080
+  only REMOTE (line    5): debug=true
+================================================================================
+Result: OK
+
+================================================================================
+HOST: host3 (<IP3>)
+================================================================================
+FAILED: timed out
+================================================================================
+Result: ERRORS
+
+Overall: systems=3, with errors=1.

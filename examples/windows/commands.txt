@@ -1,0 +1,7 @@
+Get-Service -Name WinRM, Spooler | Select-Object Name, Status
+(Get-CimInstance Win32_OperatingSystem).Caption
+Get-PSDrive -Name C | Select-Object Name, @{n='FreeGB'; e={[math]::Round($_.Free / 1GB, 1)}}
+COPY "C:\temp\to-copy.txt" "C:\temp\to-copy.txt"
+Get-Content C:\temp\to-copy.txt
+Get-Item C:\temp\missing-folder
+Restart-Computer -Force

@@ -1,0 +1,105 @@
+Run started: 2026-10-02 19:10:36
+Mode: exec
+Systems file: /tmp/systems.txt
+Commands file: /tmp/commands.txt
+
+================================================================================
+HOST: host1 (<IP1>)
+================================================================================
+
+$ whoami
+status: EXIT 0
+--- stdout ---
+admin
+
+$ uptime -p
+status: EXIT 0
+--- stdout ---
+up 0 minutes
+
+$ df -h /tmp
+status: EXIT 0
+--- stdout ---
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda        252G  8.9G  9.8G  48% /
+
+$ grep PRETTY_NAME /etc/os-release
+status: EXIT 0
+--- stdout ---
+PRETTY_NAME="Ubuntu 24.04.4 LTS"
+
+$ COPY /tmp/to-copy.txt /tmp/to-copy.txt
+status: OK (copy completed)
+
+$ cat /tmp/to-copy.txt
+status: EXIT 0
+--- stdout ---
+# Example file sent to the remote systems by the COPY line in commands.txt.
+name=myapp
+port=8443
+log_level=info
+
+$ ls /tmp/missing-folder
+status: EXIT 2
+--- stderr ---
+ls: cannot access '/tmp/missing-folder': No such file or directory
+
+$ reboot
+status: SKIPPED - potentially destructive command; use --allow-dangerous for trusted commands
+================================================================================
+Result: ERRORS
+
+================================================================================
+HOST: host2 (<IP2>)
+================================================================================
+
+$ whoami
+status: EXIT 0
+--- stdout ---
+admin
+
+$ uptime -p
+status: EXIT 0
+--- stdout ---
+up 0 minutes
+
+$ df -h /tmp
+status: EXIT 0
+--- stdout ---
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda        252G  8.9G  9.8G  48% /
+
+$ grep PRETTY_NAME /etc/os-release
+status: EXIT 0
+--- stdout ---
+PRETTY_NAME="Ubuntu 24.04.4 LTS"
+
+$ COPY /tmp/to-copy.txt /tmp/to-copy.txt
+status: OK (copy completed)
+
+$ cat /tmp/to-copy.txt
+status: EXIT 0
+--- stdout ---
+# Example file sent to the remote systems by the COPY line in commands.txt.
+name=myapp
+port=8443
+log_level=info
+
+$ ls /tmp/missing-folder
+status: EXIT 2
+--- stderr ---
+ls: cannot access '/tmp/missing-folder': No such file or directory
+
+$ reboot
+status: SKIPPED - potentially destructive command; use --allow-dangerous for trusted commands
+================================================================================
+Result: ERRORS
+
+================================================================================
+HOST: host3 (<IP3>)
+================================================================================
+FAILED: timed out
+================================================================================
+Result: ERRORS
+
+Overall: systems=3, with errors=3.

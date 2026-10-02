@@ -1,0 +1,35 @@
+2026-10-02 19:16:22,094 - INFO: Starting: mode=exec, systems=3, systems file=C:\temp\systems.txt
+2026-10-02 19:16:22,268 - INFO: [host1] Connecting to host1 as 'DOMAIN\admin'
+2026-10-02 19:16:22,951 - INFO: [host1] Connected
+2026-10-02 19:16:22,963 - INFO: [host1] Executing: Get-Service -Name WinRM, Spooler | Select-Object Name, Status
+2026-10-02 19:16:23,714 - INFO: [host1] Exit code 0: Get-Service -Name WinRM, Spooler | Select-Object Name, Status
+2026-10-02 19:16:23,714 - INFO: [host1] Executing: (Get-CimInstance Win32_OperatingSystem).Caption
+2026-10-02 19:16:24,392 - INFO: [host1] Exit code 0: (Get-CimInstance Win32_OperatingSystem).Caption
+2026-10-02 19:16:24,392 - INFO: [host1] Executing: Get-PSDrive -Name C | Select-Object Name, @{n='FreeGB'; e={[math]::Round($_.Free / 1GB, 1)}}
+2026-10-02 19:16:25,057 - INFO: [host1] Exit code 0: Get-PSDrive -Name C | Select-Object Name, @{n='FreeGB'; e={[math]::Round($_.Free / 1GB, 1)}}
+2026-10-02 19:16:25,569 - INFO: [host1] COPY 'C:\temp\to-copy.txt' 'C:\temp\to-copy.txt': copied=1, skipped=0, failed=0
+2026-10-02 19:16:25,569 - INFO: [host1] Executing: Get-Content C:\temp\to-copy.txt
+2026-10-02 19:16:26,198 - INFO: [host1] Exit code 0: Get-Content C:\temp\to-copy.txt
+2026-10-02 19:16:26,198 - INFO: [host1] Executing: Get-Item C:\temp\missing-folder
+2026-10-02 19:16:26,841 - INFO: [host1] Exit code 1: Get-Item C:\temp\missing-folder
+2026-10-02 19:16:26,841 - WARNING: [host1] Skipped dangerous command: Restart-Computer -Force
+2026-10-02 19:16:26,907 - INFO: [host1] Finished: ERRORS
+2026-10-02 19:16:22,271 - INFO: [host2] Connecting to host2 as 'DOMAIN\admin'
+2026-10-02 19:16:23,108 - INFO: [host2] Connected
+2026-10-02 19:16:23,120 - INFO: [host2] Executing: Get-Service -Name WinRM, Spooler | Select-Object Name, Status
+2026-10-02 19:16:23,938 - INFO: [host2] Exit code 0: Get-Service -Name WinRM, Spooler | Select-Object Name, Status
+2026-10-02 19:16:23,938 - INFO: [host2] Executing: (Get-CimInstance Win32_OperatingSystem).Caption
+2026-10-02 19:16:24,704 - INFO: [host2] Exit code 0: (Get-CimInstance Win32_OperatingSystem).Caption
+2026-10-02 19:16:24,704 - INFO: [host2] Executing: Get-PSDrive -Name C | Select-Object Name, @{n='FreeGB'; e={[math]::Round($_.Free / 1GB, 1)}}
+2026-10-02 19:16:25,426 - INFO: [host2] Exit code 0: Get-PSDrive -Name C | Select-Object Name, @{n='FreeGB'; e={[math]::Round($_.Free / 1GB, 1)}}
+2026-10-02 19:16:25,983 - INFO: [host2] COPY 'C:\temp\to-copy.txt' 'C:\temp\to-copy.txt': copied=1, skipped=0, failed=0
+2026-10-02 19:16:25,983 - INFO: [host2] Executing: Get-Content C:\temp\to-copy.txt
+2026-10-02 19:16:26,655 - INFO: [host2] Exit code 0: Get-Content C:\temp\to-copy.txt
+2026-10-02 19:16:26,655 - INFO: [host2] Executing: Get-Item C:\temp\missing-folder
+2026-10-02 19:16:27,344 - INFO: [host2] Exit code 1: Get-Item C:\temp\missing-folder
+2026-10-02 19:16:27,344 - WARNING: [host2] Skipped dangerous command: Restart-Computer -Force
+2026-10-02 19:16:27,416 - INFO: [host2] Finished: ERRORS
+2026-10-02 19:16:22,275 - INFO: [host3] Connecting to host3 as 'DOMAIN\admin'
+2026-10-02 19:16:32,306 - ERROR: [host3] Failed: Connecting to remote server host3 failed with the following error message : WinRM cannot complete the operation. Verify that the specified computer name is valid, that the computer is accessible over the network, and that a firewall exception for the WinRM service is enabled and allows access from this computer. By default, the WinRM firewall exception for public profiles limits access to remote computers within the same local subnet. For more information, see the about_Remote_Troubleshooting Help topic.
+2026-10-02 19:16:32,306 - INFO: [host3] Finished: ERRORS
+2026-10-02 19:16:32,321 - INFO: Overall: copied=2, skipped=2, commands=10, differences=0, failed=5.

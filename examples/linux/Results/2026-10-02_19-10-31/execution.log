@@ -1,0 +1,11 @@
+2026-10-02 19:10:31,221 - INFO: Starting: mode=diff, systems=3, systems file=/tmp/systems.txt
+2026-10-02 19:10:31,323 - INFO: Connecting to host1 (<IP1>) as 'admin'
+2026-10-02 19:10:31,324 - INFO: Connecting to host2 (<IP2>) as 'admin'
+2026-10-02 19:10:31,336 - INFO: Connecting to host3 (<IP3>) as 'admin'
+2026-10-02 19:10:31,581 - INFO: [host1] Compared /tmp/to-copy.txt with /tmp/to-copy.txt (details in results.txt)
+2026-10-02 19:10:31,583 - INFO: [host2] Compared /tmp/to-copy.txt with /tmp/to-copy.txt (details in results.txt)
+2026-10-02 19:10:31,583 - INFO: [host1] Finished: OK
+2026-10-02 19:10:31,584 - INFO: [host2] Finished: OK
+2026-10-02 19:10:34,341 - ERROR: [host3] Failed: timed out
+2026-10-02 19:10:34,341 - INFO: [host3] Finished: ERRORS
+2026-10-02 19:10:34,341 - INFO: Overall: systems=3, with errors=1.

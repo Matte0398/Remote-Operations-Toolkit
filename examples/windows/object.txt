@@ -1,0 +1,9 @@
+# Objects list
+# Every object is copied to the SAME path on the remote systems.
+#
+# Format:  [file:|dir:]C:\path[\*.ext][:exclusion1,exclusion2]
+#   file:      (default) the line refers to files
+#   dir:       the line refers to folders, copied with all their content
+#   *          wildcards are allowed only in the last part of the path
+#   :a,b       names to skip (files or folders, at any depth)
+file:C:\temp\to-copy.txt

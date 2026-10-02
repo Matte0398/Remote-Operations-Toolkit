@@ -1,0 +1,108 @@
+Run started: 2026-10-02 19:16:22
+Mode: exec
+Systems file: C:\temp\systems.txt
+Commands file: C:\temp\commands.txt
+
+================================================================================
+HOST: host1 (host1)
+================================================================================
+Connected using WinRM: host1
+
+Get-Service -Name WinRM, Spooler | Select-Object Name, Status
+EXIT 0
+--- stdout ---
+
+Name    Status
+----    ------
+WinRM   Running
+Spooler Running
+
+(Get-CimInstance Win32_OperatingSystem).Caption
+EXIT 0
+--- stdout ---
+Microsoft Windows Server 2022 Standard
+
+Get-PSDrive -Name C | Select-Object Name, @{n='FreeGB'; e={[math]::Round($_.Free / 1GB, 1)}}
+EXIT 0
+--- stdout ---
+
+Name FreeGB
+---- ------
+C      41.7
+
+COPY 'C:\temp\to-copy.txt' 'C:\temp\to-copy.txt'
+Copied: C:\temp\to-copy.txt -> C:\temp\to-copy.txt
+
+Get-Content C:\temp\to-copy.txt
+EXIT 0
+--- stdout ---
+# Example file sent to the remote systems by commands.txt (COPY line) and object.txt.
+name=myapp
+port=8443
+log_level=info
+
+Get-Item C:\temp\missing-folder
+EXIT 1
+--- stderr ---
+Cannot find path 'C:\temp\missing-folder' because it does not exist.
+
+Restart-Computer -Force
+SKIPPED: potentially destructive command; use -AllowDangerous for trusted commands.
+Session closed.
+Result: copied=1, skipped=1, commands=5, differences=0, failed=2.
+
+================================================================================
+HOST: host2 (host2)
+================================================================================
+Connected using WinRM: host2
+
+Get-Service -Name WinRM, Spooler | Select-Object Name, Status
+EXIT 0
+--- stdout ---
+
+Name    Status
+----    ------
+WinRM   Running
+Spooler Running
+
+(Get-CimInstance Win32_OperatingSystem).Caption
+EXIT 0
+--- stdout ---
+Microsoft Windows Server 2019 Standard
+
+Get-PSDrive -Name C | Select-Object Name, @{n='FreeGB'; e={[math]::Round($_.Free / 1GB, 1)}}
+EXIT 0
+--- stdout ---
+
+Name FreeGB
+---- ------
+C      18.3
+
+COPY 'C:\temp\to-copy.txt' 'C:\temp\to-copy.txt'
+Copied: C:\temp\to-copy.txt -> C:\temp\to-copy.txt
+
+Get-Content C:\temp\to-copy.txt
+EXIT 0
+--- stdout ---
+# Example file sent to the remote systems by commands.txt (COPY line) and object.txt.
+name=myapp
+port=8443
+log_level=info
+
+Get-Item C:\temp\missing-folder
+EXIT 1
+--- stderr ---
+Cannot find path 'C:\temp\missing-folder' because it does not exist.
+
+Restart-Computer -Force
+SKIPPED: potentially destructive command; use -AllowDangerous for trusted commands.
+Session closed.
+Result: copied=1, skipped=1, commands=5, differences=0, failed=2.
+
+================================================================================
+HOST: host3 (host3)
+================================================================================
+FAILED: Connecting to remote server host3 failed with the following error message : WinRM cannot complete the operation. Verify that the specified computer name is valid, that the computer is accessible over the network, and that a firewall exception for the WinRM service is enabled and allows access from this computer. By default, the WinRM firewall exception for public profiles limits access to remote computers within the same local subnet. For more information, see the about_Remote_Troubleshooting Help topic.
+Result: copied=0, skipped=0, commands=0, differences=0, failed=1.
+
+Overall: copied=2, skipped=2, commands=10, differences=0, failed=5.

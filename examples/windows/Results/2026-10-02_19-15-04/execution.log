@@ -1,0 +1,13 @@
+2026-10-02 19:15:04,183 - INFO: Starting: mode=diff, systems=3, systems file=C:\temp\systems.txt
+2026-10-02 19:15:04,371 - INFO: [host1] Connecting to host1 as 'DOMAIN\admin'
+2026-10-02 19:15:05,092 - INFO: [host1] Connected
+2026-10-02 19:15:05,846 - INFO: [host1] Compared C:\temp\to-copy.txt with C:\temp\to-copy.txt: differences=1
+2026-10-02 19:15:05,903 - INFO: [host1] Finished: OK
+2026-10-02 19:15:04,374 - INFO: [host2] Connecting to host2 as 'DOMAIN\admin'
+2026-10-02 19:15:05,218 - INFO: [host2] Connected
+2026-10-02 19:15:05,711 - INFO: [host2] Compared C:\temp\to-copy.txt with C:\temp\to-copy.txt: differences=0
+2026-10-02 19:15:05,768 - INFO: [host2] Finished: OK
+2026-10-02 19:15:04,378 - INFO: [host3] Connecting to host3 as 'DOMAIN\admin'
+2026-10-02 19:15:14,405 - ERROR: [host3] Failed: Connecting to remote server host3 failed with the following error message : WinRM cannot complete the operation. Verify that the specified computer name is valid, that the computer is accessible over the network, and that a firewall exception for the WinRM service is enabled and allows access from this computer. By default, the WinRM firewall exception for public profiles limits access to remote computers within the same local subnet. For more information, see the about_Remote_Troubleshooting Help topic.
+2026-10-02 19:15:14,405 - INFO: [host3] Finished: ERRORS
+2026-10-02 19:15:14,419 - INFO: Overall: copied=0, skipped=0, commands=0, differences=1, failed=1.

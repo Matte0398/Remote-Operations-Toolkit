@@ -1,0 +1,3 @@
+# Real results created by the scripts (the examples folder is kept)
+__pycache__/
+*.pyc

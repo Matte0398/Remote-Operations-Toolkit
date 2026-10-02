@@ -1,0 +1,38 @@
+Run started: 2026-10-02 19:15:04
+Mode: diff
+Systems file: C:\temp\systems.txt
+Compare: C:\temp\to-copy.txt (local) <-> C:\temp\to-copy.txt (remote)
+
+================================================================================
+HOST: host1 (host1)
+================================================================================
+Connected using WinRM: host1
+
+Compare paths
+Differences found: (root)
+  local file : C:\temp\to-copy.txt
+  remote file: C:\temp\to-copy.txt
+  only LOCAL  (line    3): port=8443
+  only REMOTE (line    3): port=8080
+  only REMOTE (line    5): debug=true
+Comparison completed: differences=1; identical files=0 (links excluded).
+Session closed.
+Result: copied=0, skipped=0, commands=0, differences=1, failed=0.
+
+================================================================================
+HOST: host2 (host2)
+================================================================================
+Connected using WinRM: host2
+
+Compare paths
+Comparison completed: differences=0; identical files=1 (links excluded).
+Session closed.
+Result: copied=0, skipped=0, commands=0, differences=0, failed=0.
+
+================================================================================
+HOST: host3 (host3)
+================================================================================
+FAILED: Connecting to remote server host3 failed with the following error message : WinRM cannot complete the operation. Verify that the specified computer name is valid, that the computer is accessible over the network, and that a firewall exception for the WinRM service is enabled and allows access from this computer. By default, the WinRM firewall exception for public profiles limits access to remote computers within the same local subnet. For more information, see the about_Remote_Troubleshooting Help topic.
+Result: copied=0, skipped=0, commands=0, differences=0, failed=1.
+
+Overall: copied=0, skipped=0, commands=0, differences=1, failed=1.
