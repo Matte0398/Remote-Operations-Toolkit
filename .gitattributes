@@ -1,6 +1,0 @@
-# Keep the right line endings for each platform
-*.py            text eol=lf
-*.md            text eol=lf
-examples/linux/**    text eol=lf
-*.ps1           text eol=crlf
-examples/windows/**  text eol=crlf
